@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>EMI Calculator India</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="nav">
+<a href="index.html">Salary</a>
+<a href="emi.html">EMI</a>
+<a href="tax.html">Tax</a>
+</div>
+
+<div class="container">
+<h2>EMI Calculator</h2>
+
+<input id="loan" type="number" placeholder="Loan Amount">
+<input id="rate" type="number" placeholder="Interest Rate %">
+<input id="months" type="number" placeholder="Months">
+
+<button onclick="calculateEMI()">Calculate EMI</button>
+
+<div class="result" id="emiResult"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
