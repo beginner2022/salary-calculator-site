@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Salary Calculator India 2026</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{
+font-family: Arial;
+background:#f4f6f9;
+margin:0;
+padding:20px;
+}
+
+.container{
+max-width:500px;
+margin:auto;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h2{text-align:center;}
+
+input{
+width:100%;
+padding:10px;
+margin:10px 0;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#007bff;
+color:white;
+border:none;
+cursor:pointer;
+font-size:16px;
+}
+
+.result{
+margin-top:20px;
+background:#e9f7ef;
+padding:15px;
+border-radius:8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h2>Salary Calculator (India 2026)</h2>
+
+<label>Enter CTC (Annual ₹)</label>
+<input type="number" id="ctc" placeholder="e.g. 600000">
+
+<button onclick="calculateSalary()">Calculate</button>
+
+<div class="result" id="result"></div>
+</div>
+
+<script>
+function calculateSalary(){
+let ctc = document.getElementById("ctc").value;
+
+if(!ctc){
+alert("Please enter CTC");
+return;
+}
+
+ctc = parseFloat(ctc);
+
+// simple approx calculations
+let tax = ctc * 0.05;
+let pf = ctc * 0.12;
+let inHand = (ctc - tax - pf) / 12;
+
+document.getElementById("result").innerHTML =
+`
+<b>Monthly In-hand Salary:</b> ₹${inHand.toFixed(0)} <br>
+<b>Estimated Tax:</b> ₹${tax.toFixed(0)} <br>
+<b>PF Deduction:</b> ₹${pf.toFixed(0)}
+`;
+}
+</script>
+
+</body>
+</html>
