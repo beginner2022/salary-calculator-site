@@ -4,87 +4,26 @@
 <meta charset="UTF-8">
 <title>Salary Calculator India 2026</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-body{
-font-family: Arial;
-background:#f4f6f9;
-margin:0;
-padding:20px;
-}
-
-.container{
-max-width:500px;
-margin:auto;
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
-}
-
-h2{text-align:center;}
-
-input{
-width:100%;
-padding:10px;
-margin:10px 0;
-}
-
-button{
-width:100%;
-padding:12px;
-background:#007bff;
-color:white;
-border:none;
-cursor:pointer;
-font-size:16px;
-}
-
-.result{
-margin-top:20px;
-background:#e9f7ef;
-padding:15px;
-border-radius:8px;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="container">
-<h2>Salary Calculator (India 2026)</h2>
-
-<label>Enter CTC (Annual ₹)</label>
-<input type="number" id="ctc" placeholder="e.g. 600000">
-
-<button onclick="calculateSalary()">Calculate</button>
-
-<div class="result" id="result"></div>
+<div class="nav">
+<a href="index.html">Salary</a>
+<a href="emi.html">EMI</a>
+<a href="tax.html">Tax</a>
 </div>
 
-<script>
-function calculateSalary(){
-let ctc = document.getElementById("ctc").value;
+<div class="container">
+<h2>Salary Calculator</h2>
 
-if(!ctc){
-alert("Please enter CTC");
-return;
-}
+<input type="number" id="ctc" placeholder="Enter Annual CTC (₹)">
+<button onclick="calculateSalary()">Calculate</button>
 
-ctc = parseFloat(ctc);
+<div id="result" class="result"></div>
+</div>
 
-// simple approx calculations
-let tax = ctc * 0.05;
-let pf = ctc * 0.12;
-let inHand = (ctc - tax - pf) / 12;
-
-document.getElementById("result").innerHTML =
-`
-<b>Monthly In-hand Salary:</b> ₹${inHand.toFixed(0)} <br>
-<b>Estimated Tax:</b> ₹${tax.toFixed(0)} <br>
-<b>PF Deduction:</b> ₹${pf.toFixed(0)}
-`;
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
